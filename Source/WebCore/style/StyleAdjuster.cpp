@@ -435,9 +435,7 @@ void Adjuster::adjust(RenderStyle& style, const RenderStyle* userAgentAppearance
         style.setEffectiveDisplay(DisplayType::Block);
     }
 
-
     if (style.display() != DisplayType::None && style.display() != DisplayType::Contents) {
-        
         if (m_element) {
             // Tables never support the -webkit-* values for text-align and will reset back to the default.
             if (is<HTMLTableElement>(*m_element) && (style.textAlign() == TextAlignMode::WebKitLeft || style.textAlign() == TextAlignMode::WebKitCenter || style.textAlign() == TextAlignMode::WebKitRight))
@@ -508,7 +506,6 @@ void Adjuster::adjust(RenderStyle& style, const RenderStyle* userAgentAppearance
         // https://drafts.csswg.org/css-ruby-1/#bidi
         if (isRubyContainerOrInternalRubyBox(style))
             style.setUnicodeBidi(forceBidiIsolationForRuby(style.unicodeBidi()));
-        
     }
 
     auto hasAutoZIndex = [](const RenderStyle& style, const RenderStyle& parentBoxStyle, const Element* element) {
