@@ -530,6 +530,8 @@ contents
 grid
 inline-grid
 flow-root
+math
+block-math
 flow
 -webkit-inline-flex
 -webkit-flex

@@ -55,7 +55,7 @@ math {
     word-spacing: normal;
     font-style: normal;
     font-weight: normal;
-    display: inline;
+    display: inline math;
     math-style: compact;
 
     /*
@@ -139,7 +139,7 @@ math {
 }
 
 math[display="block" i] {
-    display: block;
+    display: block math;
     page-break-inside: avoid;
     math-style: normal;
 }

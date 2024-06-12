@@ -419,6 +419,8 @@ TextStream& operator<<(TextStream& ts, DisplayType display)
     case DisplayType::Grid: ts << "grid"; break;
     case DisplayType::InlineGrid: ts << "inline-grid"; break;
     case DisplayType::FlowRoot: ts << "flow-root"; break;
+    case DisplayType::Math: ts << "math"; break;
+    case DisplayType::MathBlock: ts << "block math"; break;
     case DisplayType::Ruby: ts << "ruby"; break;
     case DisplayType::RubyBlock: ts << "block ruby"; break;
     case DisplayType::RubyBase: ts << "ruby-base"; break;

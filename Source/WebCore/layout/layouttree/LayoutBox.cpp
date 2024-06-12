@@ -279,6 +279,7 @@ bool Box::isBlockContainer() const
         || display == DisplayType::FlowRoot
         || display == DisplayType::ListItem
         || display == DisplayType::RubyBlock
+        || display == DisplayType::MathBlock
         || isInlineBlockBox()
         || isTableCell()
         || isTableCaption(); // TODO && !replaced element

@@ -2131,6 +2131,7 @@ RefPtr<CSSValue> consumeDisplay(CSSParserTokenRange& range, CSSParserMode mode)
         case CSSValueGrid:
         case CSSValueTable:
         case CSSValueRuby:
+        case CSSValueMath:
             if (parsedDisplayInside)
                 return nullptr;
             parsedDisplayInside = nextValueID;
@@ -2150,12 +2151,18 @@ RefPtr<CSSValue> consumeDisplay(CSSParserTokenRange& range, CSSParserMode mode)
                 return CSSValueRuby;
         }
 
+        if (!parsedDisplayOutside && *parsedDisplayInside == CSSValueMath) {
+            return CSSValueInline;
+        }
+        
         if (!parsedDisplayOutside || *parsedDisplayOutside == CSSValueBlock) {
             // Alias display: flow to display: block
             if (displayInside == CSSValueFlow)
                 return CSSValueBlock;
             if (displayInside == CSSValueRuby)
                 return CSSValueBlockRuby;
+            if (displayInside == CSSValueMath)
+                return CSSValueBlock;
             return displayInside;
         }
 
@@ -2163,6 +2170,8 @@ RefPtr<CSSValue> consumeDisplay(CSSParserTokenRange& range, CSSParserMode mode)
         switch (displayInside) {
         case CSSValueFlex:
             return CSSValueInlineFlex;
+        case CSSValueMath:
+            return CSSValueInline;
         case CSSValueFlow:
             return CSSValueInline;
         case CSSValueFlowRoot:

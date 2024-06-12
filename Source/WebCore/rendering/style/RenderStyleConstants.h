@@ -863,6 +863,8 @@ enum class DisplayType : uint8_t {
     Grid,
     InlineGrid,
     FlowRoot,
+    Math,
+    MathBlock,
     Ruby,
     RubyBlock,
     RubyBase,

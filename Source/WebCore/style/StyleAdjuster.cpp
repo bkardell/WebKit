@@ -144,7 +144,10 @@ static DisplayType equivalentBlockDisplay(const RenderStyle& style)
         return DisplayType::Grid;
     case DisplayType::Ruby:
         return DisplayType::RubyBlock;
-
+    case DisplayType::Math:
+       return DisplayType::Inline;
+    case DisplayType::MathBlock:
+       return DisplayType::Inline;
     case DisplayType::Inline:
     case DisplayType::InlineBlock:
     case DisplayType::TableRowGroup:
@@ -187,6 +190,8 @@ static DisplayType equivalentInlineDisplay(const RenderStyle& style)
     case DisplayType::RubyBlock:
         return DisplayType::Ruby;
 
+    case DisplayType::MathBlock:
+        return DisplayType::Math;
     case DisplayType::Inline:
     case DisplayType::InlineBlock:
     case DisplayType::InlineTable:
@@ -210,6 +215,8 @@ static DisplayType equivalentInlineDisplay(const RenderStyle& style)
     case DisplayType::TableCaption:
         return DisplayType::Inline;
 
+    case DisplayType::Math:
+        return display;
     case DisplayType::Contents:
         ASSERT_NOT_REACHED();
         return DisplayType::Contents;
@@ -428,7 +435,9 @@ void Adjuster::adjust(RenderStyle& style, const RenderStyle* userAgentAppearance
         style.setEffectiveDisplay(DisplayType::Block);
     }
 
+
     if (style.display() != DisplayType::None && style.display() != DisplayType::Contents) {
+        
         if (m_element) {
             // Tables never support the -webkit-* values for text-align and will reset back to the default.
             if (is<HTMLTableElement>(*m_element) && (style.textAlign() == TextAlignMode::WebKitLeft || style.textAlign() == TextAlignMode::WebKitCenter || style.textAlign() == TextAlignMode::WebKitRight))
@@ -499,6 +508,7 @@ void Adjuster::adjust(RenderStyle& style, const RenderStyle* userAgentAppearance
         // https://drafts.csswg.org/css-ruby-1/#bidi
         if (isRubyContainerOrInternalRubyBox(style))
             style.setUnicodeBidi(forceBidiIsolationForRuby(style.unicodeBidi()));
+        
     }
 
     auto hasAutoZIndex = [](const RenderStyle& style, const RenderStyle& parentBoxStyle, const Element* element) {
