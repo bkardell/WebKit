@@ -55,7 +55,7 @@ math {
     word-spacing: normal;
     font-style: normal;
     font-weight: normal;
-    display: inline;
+    display: inline math;
     math-style: compact;
 
     /*
@@ -139,12 +139,13 @@ math {
 }
 
 math[display="block" i] {
-    display: block;
+    display: block math;
     page-break-inside: avoid;
     math-style: normal;
 }
 math[display="inline" i] {
-  math-style: compact;
+    display: inline math;
+    math-style: compact;
 }
 
 ms, mspace, mtext, mi, mn, mo, mrow, mfenced, mfrac, msub, msup, msubsup, mmultiscripts, mprescripts, none, munder, mover, munderover, msqrt, mroot, merror, mphantom, mstyle, menclose, semantics, mpadded, maction {
