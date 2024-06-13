@@ -2255,6 +2255,22 @@ DisallowSyncXHRDuringPageDismissalEnabled:
     WebCore:
       default: true
 
+DisplayMathEnabled:
+  type: bool
+  status: unstable
+  category: dom
+  condition: ENABLE(DISPLAY_MATH)
+  humanReadableName: "display math"
+  humanReadableDescription: "Allows computed style to give values from the MathML Core spec."
+  defaultValue:
+    WebKitLegacy:
+      default: false
+    WebKit:
+      "PLATFORM(GTK) || PLATFORM(WPE)": false
+      default: false
+    WebCore:
+      default: false
+      
 # FIXME: This is on by default in WebKit2. Perhaps we should consider turning it on for WebKitLegacy as well.
 DownloadAttributeEnabled:
   type: bool

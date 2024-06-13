@@ -2131,7 +2131,9 @@ RefPtr<CSSValue> consumeDisplay(CSSParserTokenRange& range, CSSParserMode mode)
         case CSSValueGrid:
         case CSSValueTable:
         case CSSValueRuby:
+#if ENABLE(DISPLAY_MATH)
         case CSSValueMath:
+#endif
             if (parsedDisplayInside)
                 return nullptr;
             parsedDisplayInside = nextValueID;
