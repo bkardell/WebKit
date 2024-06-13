@@ -744,7 +744,7 @@ constexpr CSSValueID toCSSValueID(DisplayType e)
     case DisplayType::Math:
         return CSSValueMath;
     case DisplayType::MathBlock:
-        return CSSValueBlockMath;
+        return CSSValueBlock;
     case DisplayType::Ruby:
         return CSSValueRuby;
     case DisplayType::RubyBlock:
@@ -805,8 +805,6 @@ template<> constexpr DisplayType fromCSSValueID(CSSValueID valueID)
         return DisplayType::None;
     case CSSValueMath:
         return DisplayType::Math;
-    case CSSValueBlockMath:
-        return DisplayType::MathBlock;
     case CSSValueContents:
         return DisplayType::Contents;
     case CSSValueFlowRoot:
