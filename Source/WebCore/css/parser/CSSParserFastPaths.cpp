@@ -912,6 +912,9 @@ static RefPtr<CSSValue> parseDisplay(StringView string)
     case CSSValueFlex:
     case CSSValueFlowRoot:
     case CSSValueGrid:
+#if ENABLE(DISPLAY_MATH)
+    case CSSValueMath:
+#endif
     case CSSValueTable:
     // <display-internal>
     case CSSValueTableCaption:

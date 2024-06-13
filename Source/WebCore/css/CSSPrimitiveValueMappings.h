@@ -741,6 +741,12 @@ constexpr CSSValueID toCSSValueID(DisplayType e)
         return CSSValueContents;
     case DisplayType::FlowRoot:
         return CSSValueFlowRoot;
+#if ENABLE(DISPLAY_MATH)
+        case DisplayType::Math:
+            return CSSValueMath;
+        case DisplayType::MathBlock:
+            return CSSValueBlock;
+#endif // ENABLE(DISPLAY_MATH)
     case DisplayType::Ruby:
         return CSSValueRuby;
     case DisplayType::RubyBlock:
@@ -799,6 +805,10 @@ template<> constexpr DisplayType fromCSSValueID(CSSValueID valueID)
         return DisplayType::InlineGrid;
     case CSSValueNone:
         return DisplayType::None;
+#if ENABLE(DISPLAY_MATH)
+    case CSSValueMath:
+        return DisplayType::Math;
+#endif
     case CSSValueContents:
         return DisplayType::Contents;
     case CSSValueFlowRoot:

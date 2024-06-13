@@ -144,7 +144,12 @@ static DisplayType equivalentBlockDisplay(const RenderStyle& style)
         return DisplayType::Grid;
     case DisplayType::Ruby:
         return DisplayType::RubyBlock;
-
+#if ENABLE(CORE_MATHML)
+    case DisplayType::Math:
+       return DisplayType::MathBlock;
+    case DisplayType::MathBlock:
+       return DisplayType::MathBlock;
+#endif
     case DisplayType::Inline:
     case DisplayType::InlineBlock:
     case DisplayType::TableRowGroup:
@@ -186,7 +191,10 @@ static DisplayType equivalentInlineDisplay(const RenderStyle& style)
         return DisplayType::InlineGrid;
     case DisplayType::RubyBlock:
         return DisplayType::Ruby;
-
+#if ENABLE(CORE_MATHML)
+    case DisplayType::MathBlock:
+        return DisplayType::Math;
+#endif
     case DisplayType::Inline:
     case DisplayType::InlineBlock:
     case DisplayType::InlineTable:
@@ -196,8 +204,10 @@ static DisplayType equivalentInlineDisplay(const RenderStyle& style)
     case DisplayType::Ruby:
     case DisplayType::RubyBase:
     case DisplayType::RubyAnnotation:
+#if ENABLE(CORE_MATHML)
+    case DisplayType::Math:
+#endif
         return display;
-
     case DisplayType::FlowRoot:
     case DisplayType::ListItem:
     case DisplayType::TableRowGroup:
