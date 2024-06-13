@@ -189,9 +189,6 @@ static DisplayType equivalentInlineDisplay(const RenderStyle& style)
         return DisplayType::InlineGrid;
     case DisplayType::RubyBlock:
         return DisplayType::Ruby;
-
-    case DisplayType::MathBlock:
-        return DisplayType::Math;
     case DisplayType::Inline:
     case DisplayType::InlineBlock:
     case DisplayType::InlineTable:
@@ -202,7 +199,8 @@ static DisplayType equivalentInlineDisplay(const RenderStyle& style)
     case DisplayType::RubyBase:
     case DisplayType::RubyAnnotation:
         return display;
-
+    case DisplayType::MathBlock:
+        return DisplayType::Math;
     case DisplayType::FlowRoot:
     case DisplayType::ListItem:
     case DisplayType::TableRowGroup:
