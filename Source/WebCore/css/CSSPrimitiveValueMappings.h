@@ -805,6 +805,8 @@ template<> constexpr DisplayType fromCSSValueID(CSSValueID valueID)
         return DisplayType::None;
     case CSSValueMath:
         return DisplayType::Math;
+    case CSSValueBlockMath:
+        return DisplayType::MathBlock;
     case CSSValueContents:
         return DisplayType::Contents;
     case CSSValueFlowRoot:
