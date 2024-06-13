@@ -145,9 +145,9 @@ static DisplayType equivalentBlockDisplay(const RenderStyle& style)
     case DisplayType::Ruby:
         return DisplayType::RubyBlock;
     case DisplayType::Math:
-       return DisplayType::Inline;
+       return DisplayType::MathBlock;
     case DisplayType::MathBlock:
-       return DisplayType::Inline;
+       return DisplayType::MathBlock;
     case DisplayType::Inline:
     case DisplayType::InlineBlock:
     case DisplayType::TableRowGroup:
